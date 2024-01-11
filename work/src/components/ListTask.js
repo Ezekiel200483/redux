@@ -22,15 +22,17 @@ const ListTask = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="task-container">
+      <div className="filter-buttons">
         <button onClick={() => handleFilterChange("all")}>All</button>
         <button onClick={() => handleFilterChange("done")}>Done</button>
         <button onClick={() => handleFilterChange("notDone")}>Not Done</button>
       </div>
-      {tasks.map((task) => (
-        <Task key={task.id} task={task} />
-      ))}
+      {tasks.length === 0 ? (
+        <p>No tasks available.</p>
+      ) : (
+        tasks.map((task) => <Task key={task.id} task={task} />)
+      )}
     </div>
   );
 };

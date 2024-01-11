@@ -9,18 +9,19 @@ const AddTask = () => {
 
   const handleAddTask = () => {
     if (description.trim() !== "") {
-      const id = Date.now(); 
+      const id = Date.now();
       dispatch(addTask(id, description));
       setDescription("");
     }
   };
 
   return (
-    <div>
+    <div className="add-task-container">
       <input
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        placeholder="Enter a new task"
       />
       <button onClick={handleAddTask}>Add Task</button>
     </div>

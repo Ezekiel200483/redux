@@ -18,7 +18,7 @@ const Task = ({ task }) => {
   };
 
   return (
-    <div>
+    <div className="task">
       <input
         type="checkbox"
         checked={task.isDone}
@@ -30,8 +30,10 @@ const Task = ({ task }) => {
             type="text"
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
+            aria-label="Edit task description"
           />
           <button onClick={handleEditTask}>Save</button>
+          <button onClick={() => setEditing(false)}>Cancel</button>
         </>
       ) : (
         <>
